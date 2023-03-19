@@ -181,9 +181,19 @@ double rtod(double x) {
     return x * 57.2957795131;
 }
 
+//gcd using a recursive euclid's algorithm
+unsigned gcf(unsigned p, unsigned q) { 
+    if (p == 0 || q == 0) return 0;
+    if (p > q) {
+        if (p % q == 0) return q;
+        return gcf(q, p % q);
+    }
+    if (q % p == 0) return p;
+    return gcf(p, q % p);
+}
+
 double fpow(double a, double ntemp) {
 
-    int gcf;
     long n;
     long d = 10000000;
     ntemp *= d;
@@ -192,10 +202,10 @@ double fpow(double a, double ntemp) {
     // cout << "n: " << ntemp << endl;
     // cout << "d: " << d << endl;
     
+    unsigned gcd = gcf(n, d);
     //simplifies fraction
-    gcf = n % d;
-    n /= gcf;
-    d /= gcf;
+    n /= gcd;
+    d /= gcd;
 
     // cout << "n: " << ntemp << endl;
     // cout << "d: " << d << endl;
