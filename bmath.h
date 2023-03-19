@@ -12,6 +12,7 @@ double fact(int x); //factorial: x!
 double exp(int x);
 double sqrt(double x);
 double nroot(double a, int r); //finds nth root: nroot(a, r) = a^(1/r)
+unsigned gcf(unsigned p, unsigned q); //gcd using a recursive euclid's algorithm
 
 //trig functions
 double sin(double x);
